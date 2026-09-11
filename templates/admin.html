@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Admin Dashboard</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f5f6f8;
+            color: #222;
+        }
+
+        header {
+            background: #111827;
+            color: white;
+
+            padding: 20px 30px;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        .logout {
+            color: white;
+            background: #dc2626;
+
+            text-decoration: none;
+
+            padding: 10px 16px;
+
+            border-radius: 6px;
+        }
+
+        .container {
+            max-width: 1400px;
+
+            margin: 30px auto;
+
+            padding: 0 20px;
+        }
+
+        .stat {
+            background: white;
+
+            padding: 20px;
+
+            border-radius: 10px;
+
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+
+            margin-bottom: 25px;
+        }
+
+        .stat h3 {
+            margin: 0 0 10px;
+            color: #666;
+        }
+
+        .stat p {
+            font-size: 28px;
+            font-weight: bold;
+            margin: 0;
+        }
+
+        .inbox {
+            background: white;
+
+            border-radius: 10px;
+
+            padding: 20px;
+
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+
+            border-collapse: collapse;
+
+            min-width: 1000px;
+        }
+
+        th {
+            background: #f3f4f6;
+
+            text-align: left;
+
+            padding: 13px;
+        }
+
+        td {
+            padding: 13px;
+
+            border-top: 1px solid #eee;
+
+            vertical-align: top;
+        }
+
+        .status {
+            padding: 5px 9px;
+
+            border-radius: 20px;
+
+            font-size: 12px;
+
+            background: #fef3c7;
+
+            color: #92400e;
+        }
+
+        .contacted {
+            background: #dcfce7;
+            color: #166534;
+        }
+
+        .btn {
+            display: inline-block;
+
+            padding: 7px 10px;
+
+            border-radius: 5px;
+
+            text-decoration: none;
+
+            color: white;
+
+            margin: 2px;
+
+            font-size: 13px;
+        }
+
+        .contact {
+            background: #16a34a;
+        }
+
+        .delete {
+            background: #dc2626;
+        }
+
+        .phone,
+        .email {
+            color: #2563eb;
+            text-decoration: none;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<header>
+
+    <h1>Real Estate Admin</h1>
+
+    <a href="{{ url_for('admin_logout') }}"
+       class="logout">
+
+        Logout
+
+    </a>
+
+</header>
+
+
+<div class="container">
+
+    <div class="stat">
+
+        <h3>Total Enquiries</h3>
+
+        <p>{{ enquiries|length }}</p>
+
+    </div>
+
+
+    <div class="inbox">
+
+        <h2>📩 Enquiry Inbox</h2>
+
+
+        {% if enquiries %}
+
+        <table>
+
+            <thead>
+
+                <tr>
+
+                    <th>ID</th>
+                    <th>Customer</th>
+                    <th>Phone</th>
+                    <th>Email</th>
+                    <th>Property</th>
+                    <th>Message</th>
+                    <th>Status</th>
+                    <th>Date</th>
+                    <th>Actions</th>
+
+                </tr>
+
+            </thead>
+
+
+            <tbody>
+
+            {% for enquiry in enquiries %}
+
+                <tr>
+
+                    <td>
+                        {{ enquiry["id"] }}
+                    </td>
+
+                    <td>
+                        <strong>
+                            {{ enquiry["name"] }}
+                        </strong>
+                    </td>
+
+                    <td>
+
+                        <a
+                            class="phone"
+                            href="tel:{{ enquiry['phone'] }}"
+                        >
+
+                            {{ enquiry["phone"] }}
+
+                        </a>
+
+                    </td>
+
+                    <td>
+
+                        <a
+                            class="email"
+                            href="mailto:{{ enquiry['email'] }}"
+                        >
+
+                            {{ enquiry["email"] }}
+
+                        </a>
+
+                    </td>
+
+                    <td>
+                        {{ enquiry["property_name"] }}
+                    </td>
+
+                    <td>
+                        {{ enquiry["message"] }}
+                    </td>
+
+                    <td>
+
+                        {% if enquiry["status"] == "Contacted" %}
+
+                            <span class="status contacted">
+                                Contacted
+                            </span>
+
+                        {% else %}
+
+                            <span class="status">
+                                New
+                            </span>
+
+                        {% endif %}
+
+                    </td>
+
+                    <td>
+                        {{ enquiry["created_at"] }}
+                    </td>
+
+                    <td>
+
+                        {% if enquiry["status"] != "Contacted" %}
+
+                        <a
+                            class="btn contact"
+                            href="{{ url_for('mark_contacted', enquiry_id=enquiry['id']) }}"
+                        >
+
+                            Contacted
+
+                        </a>
+
+                        {% endif %}
+
+
+                        <a
+                            class="btn delete"
+                            href="{{ url_for('delete_enquiry', enquiry_id=enquiry['id']) }}"
+                            onclick="return confirm('Delete this enquiry?')"
+                        >
+
+                            Delete
+
+                        </a>
+
+                    </td>
+
+                </tr>
+
+            {% endfor %}
+
+            </tbody>
+
+        </table>
+
+
+        {% else %}
+
+            <p>No enquiries yet.</p>
+
+        {% endif %}
+
+    </div>
+
+</div>
+
+</body>
+
+</html>

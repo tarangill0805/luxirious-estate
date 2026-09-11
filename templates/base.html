@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Premium real estate listings for land, houses, kothis, villas and rental properties.">
+<title>{% block title %}EstateX | Find Extraordinary Property{% endblock %}</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+<nav class="nav"><a class="logo" href="/">ESTATE<span>X</span></a>
+<div class="navlinks"><a href="/">Home</a><a href="/properties">Explore</a><a href="/contact">Contact</a><a class="navcta" href="/admin">Add Property</a></div></nav>
+{% with messages = get_flashed_messages() %}{% if messages %}<div class="flash">{{ messages[0] }}</div>{% endif %}{% endwith %}
+{% block content %}{% endblock %}
+<footer><div><b>ESTATE<span>X</span></b><p>Extraordinary places. Smarter property discovery.</p></div><div>Land • Houses • Kothis • Villas • Rentals</div></footer>
+<script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body></html>

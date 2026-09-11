@@ -1,0 +1,22 @@
+{% extends "base.html" %}{% block title %}EstateX | Premium Real Estate{% endblock %}{% block content %}
+<section class="hero">
+<video autoplay muted loop playsinline><source src="{{ url_for('static', filename='assets/video/hero.mp4') }}" type="video/mp4"></video>
+<div class="overlay"></div>
+<div class="hero-content">
+<p class="eyebrow">PROPERTY, REIMAGINED</p>
+<h1>Find a place that feels<br><em>impossible to forget.</em></h1>
+<p class="hero-text">Discover land, luxury villas, kothis, homes and rentals through a cinematic property experience.</p>
+<form class="searchbox" action="/properties">
+<input name="q" placeholder="Search city, area or property...">
+<select name="purpose"><option value="">Buy or Rent</option><option>Sale</option><option>Rent</option></select>
+<button>Explore Properties →</button>
+</form>
+</div>
+<div class="hero-bottom"><span>{{ stats.total }}+ LISTINGS</span><span>{{ stats.sale }} FOR SALE</span><span>{{ stats.rent }} FOR RENT</span></div>
+</section>
+<section class="intro"><p class="eyebrow">NOT AN ORDINARY PROPERTY PORTAL</p><h2>Real estate with a<br>different point of view.</h2><p>From peaceful land to statement villas, EstateX turns property discovery into an experience.</p></section>
+<section class="categories"><a href="/properties?type=Land">01 <b>Land</b><span>Explore →</span></a><a href="/properties?type=House">02 <b>Homes</b><span>Explore →</span></a><a href="/properties?type=Kothi">03 <b>Kothis</b><span>Explore →</span></a><a href="/properties?type=Villa">04 <b>Villas</b><span>Explore →</span></a></section>
+<section class="listings"><div class="section-head"><div><p class="eyebrow">CURATED INVENTORY</p><h2>Featured properties</h2></div><a href="/properties">View all →</a></div>
+<div class="property-grid">{% for p in properties %}<article class="card"><div class="card-image">{% if p.image %}<img src="{{ url_for('static', filename='assets/uploads/' + p.image) }}" alt="{{ p.title }}">{% else %}<img src="{{ url_for('static', filename='assets/images/placeholder.svg') }}" alt="{{ p.title }}">{% endif %}<span>{{ p.purpose }}</span></div><div class="card-body"><p>{{ p.property_type }} · {{ p.location }}</p><h3>{{ p.title }}</h3><h4>{{ p.price }}</h4><a href="/property/{{ p.id }}">Discover property →</a></div></article>{% else %}<div class="empty">Your featured properties will appear here after you add them from the admin dashboard.</div>{% endfor %}</div></section>
+<section class="cta"><p class="eyebrow">SELL WITH CONFIDENCE</p><h2>Have a property<br>worth discovering?</h2><a href="/admin">Add to inventory →</a></section>
+{% endblock %}

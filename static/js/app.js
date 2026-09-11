@@ -1,0 +1,1 @@
+document.addEventListener("DOMContentLoaded",()=>{const n=document.querySelector(".nav");window.addEventListener("scroll",()=>n.classList.toggle("scrolled",scrollY>40));});
