@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,10 +6,9 @@
 
     <meta charset="UTF-8">
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Admin Dashboard</title>
+    <title>Admin Dashboard - Luxirious Estate</title>
 
     <style>
 
@@ -18,77 +18,220 @@
 
         body {
             margin: 0;
+
             font-family: Arial, sans-serif;
-            background: #f5f6f8;
-            color: #222;
+
+            background: #f3f4f6;
+
+            color: #111827;
         }
+
+
+        /* =========================
+           HEADER
+        ========================= */
 
         header {
             background: #111827;
+
             color: white;
 
-            padding: 20px 30px;
+            padding: 18px 30px;
 
             display: flex;
+
             justify-content: space-between;
+
             align-items: center;
         }
 
         header h1 {
             margin: 0;
+
+            font-size: 22px;
         }
 
         .logout {
-            color: white;
             background: #dc2626;
+
+            color: white;
 
             text-decoration: none;
 
-            padding: 10px 16px;
+            padding: 10px 17px;
 
             border-radius: 6px;
         }
 
+        .logout:hover {
+            background: #b91c1c;
+        }
+
+
+        /* =========================
+           MAIN CONTAINER
+        ========================= */
+
         .container {
-            max-width: 1400px;
+            max-width: 1250px;
 
             margin: 30px auto;
 
             padding: 0 20px;
         }
 
-        .stat {
+
+        /* =========================
+           CARDS
+        ========================= */
+
+        .card {
             background: white;
 
-            padding: 20px;
-
-            border-radius: 10px;
-
-            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+            padding: 25px;
 
             margin-bottom: 25px;
-        }
-
-        .stat h3 {
-            margin: 0 0 10px;
-            color: #666;
-        }
-
-        .stat p {
-            font-size: 28px;
-            font-weight: bold;
-            margin: 0;
-        }
-
-        .inbox {
-            background: white;
 
             border-radius: 10px;
 
-            padding: 20px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+        }
 
-            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+        .card h2 {
+            margin-top: 0;
 
+            margin-bottom: 22px;
+        }
+
+
+        /* =========================
+           FLASH MESSAGE
+        ========================= */
+
+        .flash {
+            background: #dcfce7;
+
+            color: #166534;
+
+            padding: 13px;
+
+            margin-bottom: 20px;
+
+            border-radius: 7px;
+        }
+
+
+        /* =========================
+           FORM
+        ========================= */
+
+        label {
+            display: block;
+
+            font-weight: bold;
+
+            margin-top: 5px;
+
+            margin-bottom: 6px;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+
+            padding: 12px;
+
+            margin-bottom: 15px;
+
+            border: 1px solid #d1d5db;
+
+            border-radius: 6px;
+
+            font-size: 15px;
+        }
+
+        textarea {
+            min-height: 120px;
+
+            resize: vertical;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            outline: none;
+
+            border-color: #111827;
+        }
+
+
+        /* =========================
+           BUTTONS
+        ========================= */
+
+        button {
+            border: none;
+
+            padding: 11px 18px;
+
+            border-radius: 6px;
+
+            cursor: pointer;
+
+            font-size: 14px;
+        }
+
+        .add-btn {
+            background: #111827;
+
+            color: white;
+
+            font-size: 15px;
+
+            padding: 13px 22px;
+        }
+
+        .add-btn:hover {
+            background: #374151;
+        }
+
+        .delete-btn {
+            background: #dc2626;
+
+            color: white;
+        }
+
+        .delete-btn:hover {
+            background: #b91c1c;
+        }
+
+        .contact-btn {
+            display: inline-block;
+
+            background: #2563eb;
+
+            color: white;
+
+            text-decoration: none;
+
+            padding: 8px 12px;
+
+            border-radius: 5px;
+
+            font-size: 13px;
+        }
+
+        .contact-btn:hover {
+            background: #1d4ed8;
+        }
+
+
+        /* =========================
+           TABLE
+        ========================= */
+
+        .table-container {
             overflow-x: auto;
         }
 
@@ -97,87 +240,90 @@
 
             border-collapse: collapse;
 
-            min-width: 1000px;
+            min-width: 800px;
         }
 
         th {
             background: #f3f4f6;
 
+            padding: 13px;
+
             text-align: left;
 
-            padding: 13px;
+            border-bottom: 2px solid #e5e7eb;
         }
 
         td {
             padding: 13px;
 
-            border-top: 1px solid #eee;
+            border-bottom: 1px solid #e5e7eb;
 
             vertical-align: top;
         }
 
+        tr:hover {
+            background: #f9fafb;
+        }
+
+
+        /* =========================
+           STATUS
+        ========================= */
+
         .status {
-            padding: 5px 9px;
-
-            border-radius: 20px;
-
-            font-size: 12px;
-
-            background: #fef3c7;
-
-            color: #92400e;
+            font-weight: bold;
         }
 
-        .contacted {
-            background: #dcfce7;
-            color: #166534;
-        }
 
-        .btn {
-            display: inline-block;
+        /* =========================
+           MOBILE
+        ========================= */
 
-            padding: 7px 10px;
+        @media(max-width: 700px) {
 
-            border-radius: 5px;
+            header {
+                padding: 15px;
 
-            text-decoration: none;
+                flex-direction: column;
 
-            color: white;
+                gap: 15px;
 
-            margin: 2px;
+                text-align: center;
+            }
 
-            font-size: 13px;
-        }
+            .container {
+                padding: 0 12px;
+            }
 
-        .contact {
-            background: #16a34a;
-        }
+            .card {
+                padding: 18px;
+            }
 
-        .delete {
-            background: #dc2626;
-        }
-
-        .phone,
-        .email {
-            color: #2563eb;
-            text-decoration: none;
         }
 
     </style>
 
 </head>
 
+
 <body>
+
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
 
 <header>
 
-    <h1>Real Estate Admin</h1>
+    <h1>
+        Luxirious Estate — Admin Dashboard
+    </h1>
 
-    <a href="{{ url_for('admin_logout') }}"
-       class="logout">
-
+    <a
+        href="{{ url_for('admin_logout') }}"
+        class="logout"
+    >
         Logout
-
     </a>
 
 </header>
@@ -185,21 +331,240 @@
 
 <div class="container">
 
-    <div class="stat">
 
-        <h3>Total Enquiries</h3>
+<!-- =====================================================
+     FLASH MESSAGES
+===================================================== -->
 
-        <p>{{ enquiries|length }}</p>
+{% with messages = get_flashed_messages(with_categories=true) %}
 
-    </div>
+    {% if messages %}
+
+        {% for category, message in messages %}
+
+            <div class="flash">
+                {{ message }}
+            </div>
+
+        {% endfor %}
+
+    {% endif %}
+
+{% endwith %}
 
 
-    <div class="inbox">
 
-        <h2>📩 Enquiry Inbox</h2>
+<!-- =====================================================
+     ADD INVENTORY
+===================================================== -->
+
+<div class="card">
+
+    <h2>
+        ➕ Add New Property
+    </h2>
 
 
-        {% if enquiries %}
+    <form
+        action="{{ url_for('admin') }}"
+        method="POST"
+        enctype="multipart/form-data"
+    >
+
+
+        <label>
+            Property Title
+        </label>
+
+        <input
+            type="text"
+            name="title"
+            placeholder="Luxury Villa"
+            required
+        >
+
+
+        <label>
+            Property Type
+        </label>
+
+        <select
+            name="property_type"
+            required
+        >
+
+            <option value="">
+                Select Property Type
+            </option>
+
+            <option value="Villa">
+                Villa
+            </option>
+
+            <option value="House">
+                House
+            </option>
+
+            <option value="Apartment">
+                Apartment
+            </option>
+
+            <option value="Plot">
+                Plot
+            </option>
+
+            <option value="Commercial">
+                Commercial
+            </option>
+
+        </select>
+
+
+        <label>
+            Purpose
+        </label>
+
+        <select
+            name="purpose"
+            required
+        >
+
+            <option value="">
+                Select Purpose
+            </option>
+
+            <option value="Sale">
+                Sale
+            </option>
+
+            <option value="Rent">
+                Rent
+            </option>
+
+        </select>
+
+
+        <label>
+            Price
+        </label>
+
+        <input
+            type="text"
+            name="price"
+            placeholder="₹1,35,00,000"
+            required
+        >
+
+
+        <label>
+            Location
+        </label>
+
+        <input
+            type="text"
+            name="location"
+            placeholder="Mohali, Punjab"
+            required
+        >
+
+
+        <label>
+            Area
+        </label>
+
+        <input
+            type="text"
+            name="area"
+            placeholder="1 Kanal"
+        >
+
+
+        <label>
+            Bedrooms
+        </label>
+
+        <input
+            type="number"
+            name="bedrooms"
+            min="0"
+        >
+
+
+        <label>
+            Bathrooms
+        </label>
+
+        <input
+            type="number"
+            name="bathrooms"
+            min="0"
+        >
+
+
+        <label>
+            Description
+        </label>
+
+        <textarea
+            name="description"
+            placeholder="Enter complete property description..."
+        ></textarea>
+
+
+        <label>
+            Property Image
+        </label>
+
+        <input
+            type="file"
+            name="image"
+            accept="image/*"
+        >
+
+
+        <label>
+
+            <input
+                type="checkbox"
+                name="featured"
+                style="width:auto;"
+            >
+
+            Featured Property
+
+        </label>
+
+
+        <br>
+
+
+        <button
+            type="submit"
+            class="add-btn"
+        >
+            Add Property
+        </button>
+
+    </form>
+
+</div>
+
+
+
+<!-- =====================================================
+     PROPERTY INVENTORY
+===================================================== -->
+
+<div class="card">
+
+    <h2>
+        🏠 Property Inventory
+    </h2>
+
+
+    {% if properties %}
+
+    <div class="table-container">
 
         <table>
 
@@ -207,15 +572,160 @@
 
                 <tr>
 
-                    <th>ID</th>
-                    <th>Customer</th>
-                    <th>Phone</th>
-                    <th>Email</th>
-                    <th>Property</th>
-                    <th>Message</th>
-                    <th>Status</th>
-                    <th>Date</th>
-                    <th>Actions</th>
+                    <th>
+                        ID
+                    </th>
+
+                    <th>
+                        Property
+                    </th>
+
+                    <th>
+                        Type
+                    </th>
+
+                    <th>
+                        Purpose
+                    </th>
+
+                    <th>
+                        Price
+                    </th>
+
+                    <th>
+                        Location
+                    </th>
+
+                    <th>
+                        Action
+                    </th>
+
+                </tr>
+
+            </thead>
+
+
+            <tbody>
+
+            {% for property in properties %}
+
+                <tr>
+
+                    <td>
+                        {{ property.id }}
+                    </td>
+
+                    <td>
+                        <strong>
+                            {{ property.title }}
+                        </strong>
+                    </td>
+
+                    <td>
+                        {{ property.property_type }}
+                    </td>
+
+                    <td>
+                        {{ property.purpose }}
+                    </td>
+
+                    <td>
+                        {{ property.price }}
+                    </td>
+
+                    <td>
+                        {{ property.location }}
+                    </td>
+
+                    <td>
+
+                        <form
+                            action="{{ url_for('delete_property', property_id=property.id) }}"
+                            method="POST"
+                            onsubmit="return confirm('Are you sure you want to delete this property?');"
+                        >
+
+                            <button
+                                type="submit"
+                                class="delete-btn"
+                            >
+                                Delete
+                            </button>
+
+                        </form>
+
+                    </td>
+
+                </tr>
+
+            {% endfor %}
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+    {% else %}
+
+        <p>
+            No properties have been added yet.
+        </p>
+
+    {% endif %}
+
+</div>
+
+
+
+<!-- =====================================================
+     CUSTOMER ENQUIRIES
+===================================================== -->
+
+<div class="card">
+
+    <h2>
+        📩 Customer Enquiry Inbox
+    </h2>
+
+
+    {% if enquiries %}
+
+    <div class="table-container">
+
+        <table>
+
+            <thead>
+
+                <tr>
+
+                    <th>
+                        Name
+                    </th>
+
+                    <th>
+                        Phone
+                    </th>
+
+                    <th>
+                        Email
+                    </th>
+
+                    <th>
+                        Property
+                    </th>
+
+                    <th>
+                        Message
+                    </th>
+
+                    <th>
+                        Status
+                    </th>
+
+                    <th>
+                        Action
+                    </th>
 
                 </tr>
 
@@ -229,96 +739,59 @@
                 <tr>
 
                     <td>
-                        {{ enquiry["id"] }}
-                    </td>
-
-                    <td>
                         <strong>
-                            {{ enquiry["name"] }}
+                            {{ enquiry.name }}
                         </strong>
                     </td>
 
                     <td>
+                        {{ enquiry.phone }}
+                    </td>
 
-                        <a
-                            class="phone"
-                            href="tel:{{ enquiry['phone'] }}"
-                        >
+                    <td>
+                        {{ enquiry.email }}
+                    </td>
 
-                            {{ enquiry["phone"] }}
+                    <td>
+                        {{ enquiry.property_name or "General Enquiry" }}
+                    </td>
 
-                        </a>
+                    <td>
+                        {{ enquiry.message or "-" }}
+                    </td>
+
+                    <td class="status">
+
+                        {{ enquiry.status }}
 
                     </td>
 
                     <td>
 
-                        <a
-                            class="email"
-                            href="mailto:{{ enquiry['email'] }}"
-                        >
 
-                            {{ enquiry["email"] }}
+                        {% if enquiry.status != "Contacted" %}
 
-                        </a>
+                            <a
+                                href="{{ url_for('mark_contacted', enquiry_id=enquiry.id) }}"
+                                class="contact-btn"
+                            >
+                                Mark Contacted
+                            </a>
 
-                    </td>
-
-                    <td>
-                        {{ enquiry["property_name"] }}
-                    </td>
-
-                    <td>
-                        {{ enquiry["message"] }}
-                    </td>
-
-                    <td>
-
-                        {% if enquiry["status"] == "Contacted" %}
-
-                            <span class="status contacted">
-                                Contacted
-                            </span>
-
-                        {% else %}
-
-                            <span class="status">
-                                New
-                            </span>
-
-                        {% endif %}
-
-                    </td>
-
-                    <td>
-                        {{ enquiry["created_at"] }}
-                    </td>
-
-                    <td>
-
-                        {% if enquiry["status"] != "Contacted" %}
-
-                        <a
-                            class="btn contact"
-                            href="{{ url_for('mark_contacted', enquiry_id=enquiry['id']) }}"
-                        >
-
-                            Contacted
-
-                        </a>
+                            <br><br>
 
                         {% endif %}
 
 
                         <a
-                            class="btn delete"
-                            href="{{ url_for('delete_enquiry', enquiry_id=enquiry['id']) }}"
-                            onclick="return confirm('Delete this enquiry?')"
+                            href="{{ url_for('delete_enquiry', enquiry_id=enquiry.id) }}"
+                            class="contact-btn"
+                            style="background:#dc2626;"
+                            onclick="return confirm('Delete this enquiry?');"
                         >
-
                             Delete
-
                         </a>
+
 
                     </td>
 
@@ -330,17 +803,23 @@
 
         </table>
 
-
-        {% else %}
-
-            <p>No enquiries yet.</p>
-
-        {% endif %}
-
     </div>
 
+    {% else %}
+
+        <p>
+            No customer enquiries yet.
+        </p>
+
+    {% endif %}
+
 </div>
+
+
+</div>
+
 
 </body>
 
 </html>
+```
